@@ -1,14 +1,19 @@
 import React, { useState, useEffect } from 'react'
+import Product from "./Product"
 
-const url = "https://course-api.com/javascript-store-products"
+const url = "http://localhost:8888/drupal/api/v1/products"
 
 const Products = () => {
 
     const [products, setProducts] = useState([])
 
     const getProducts = async () => {
-        const response = await (await fetch(url)).json()
-        setProducts(response)
+        try {
+            const response = await (await fetch(url)).json()
+            setProducts(response)
+        } catch (error) {
+            console.log(error);
+        }
     }
 
     useEffect(() => {
@@ -16,15 +21,13 @@ const Products = () => {
     }, [])
 
     return (
-        <div className="product">
-            {products.map(product => {
-                return <article key={product.id} >
-                    <img src={product.fields.image[0].url} />
-                    <h3>{product.fields.name}</h3>
-                    <p>₹{product.fields.price}</p>
-                </article>
-            })}
-        </div>
+        <>
+            <div className="gallery">
+                {products.map(product => {
+                    return <Product key={product.field_id} product={product}/>
+                })}
+            </div>
+        </>
     )
 }
 

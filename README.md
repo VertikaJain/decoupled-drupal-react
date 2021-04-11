@@ -1,70 +1,49 @@
-# Getting Started with Create React App
+# Progressively Decoupled Drupal
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Technology Stack
+1. Drupal - Backend
+2. ReactJS - Frontend
+3. MAMP tool - server setup
 
-## Available Scripts
+## Progressive Decoupled Drupal Project Diagram
+![Progressive Decoupled Drupal Project Diagram](/images/progressively_decoupled_drupal.jpg)
 
-In the project directory, you can run:
+## Drupal Setup
+- Downloaded and install **drupal 9** and **MAMP**
+- copy drupal files to Applications->MAMP->htdocs
+- change file name in drupal->sites->default->default.services.yml to services.yml
+- enable cors.config by setting it to true and ensure these values- `allowedMethods: ['*'] and allowedOrigins: ['*']`
+- in case of permission issue, use command `sudo chmod 777 default` to enable it
+- open MAMP server and select web server as APACHE and put Name as `localhost`
+- start MAMP server and open url - http://localhost:8888/ to check if the server is up and running
 
-### `npm start`
+## Drupal login/site settings
+- login as required username (usually admin)
+- go to configuration->basic site settings and create/edit your site details there
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Drupal Extension settings
+- go to extend and enable extensions - **Serialization**, **RESTful Web Services**, **JSON:API** 
+- also add CORS UI extension by downloading it from https://www.drupal.org/project/cors_ui 
+- In extensions section click on Install new module and enter the url https://ftp.drupal.org/files/projects/cors_ui-8.x-1.0.tar.gz and click Install
+- go to configuration -> **CORS Configuration** in Web services section and Select box **Enable CORS** and save settings
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Drupal Content settings
+- go to structure->content type->click on **Add Content Type** then create Products content type
+- click on **Save and Manage fields**, then create the required fields and save them
+- go back to home page and click on **Add Content** for adding data to the fields specified in the previous step
 
-### `npm test`
+## Drupal View settings
+- go to structure->Views-> click on **Add View** 
+- Provide a View name as required and check on **Provide a REST Export**
+- After saving, go to the View that you created just now and **Add fields** to display in the JSON output
+- you can alter the JSON output by using the **Rewrite Results** options for each field
+- Click on **Apply** and later **Save** the changes to preview the JSON output
+- You need to provide a path (url of your choice) in **Path settings** 
+- then change Access restrictions to **Unrestricted** and Save it
+- Lastly, you can go to the URL path that you specified and view your data in JSON format that you added in Content settings
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## React setup
+- in a separate folder create a new react application using command `npx create-react-app react-ecommerce`
+- create a component `Products` in src folder
+- use the URL created in drupal to display the data on frontend using **fetch()** and **json()**
+- create another component `Product` to display each product by passing it as props in a loop
