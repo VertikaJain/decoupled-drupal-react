@@ -6,7 +6,7 @@
 3. MAMP tool - server setup
 
 ## Progressive Decoupled Drupal Project Diagram
-![Progressive Decoupled Drupal Project Diagram](/images/progressively_decoupled_drupal.jpg)
+![Progressive Decoupled Drupal Project Diagram](/public/images/progressively_decoupled_drupal.jpg)
 
 ## Drupal Setup
 - Downloaded and install **drupal 9** and **MAMP**
