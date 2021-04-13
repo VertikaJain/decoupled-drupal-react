@@ -1,12 +1,12 @@
-# Progressively Decoupled Drupal
+# Decoupled Drupal
 
 ## Technology Stack
 1. Drupal - Backend
 2. ReactJS - Frontend
 3. MAMP tool - server setup
 
-## Progressive Decoupled Drupal Project Diagram
-![Progressive Decoupled Drupal Project Diagram](/public/images/progressively_decoupled_drupal.jpg)
+## Decoupled Drupal Project Diagram
+![Decoupled Drupal Project Diagram](/public/images/progressively_decoupled_drupal.jpg)
 
 ## Drupal Setup
 1. Downloaded and install **drupal 9** and **MAMP**
