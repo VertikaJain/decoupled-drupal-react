@@ -6,7 +6,7 @@
 3. MAMP tool - server setup
 
 ## Decoupled Drupal Project Diagram
-![Decoupled Drupal Project Diagram](/public/images/progressively_decoupled_drupal.jpg)
+![Decoupled Drupal Project Diagram](/public/images/decoupled_drupal.png)
 
 ## Drupal Setup
 1. Downloaded and install **drupal 9** and **MAMP**
@@ -29,7 +29,7 @@
     # Sets the Access-Control-Allow-Credentials header.
     supportsCredentials: false
     ```
-5. in case of permission issue, use command `sudo chmod 777 default` to enable it
+5. in case of permission issue, make sure that read/write operations are enabled
 6. open MAMP server and select web server as APACHE and put Name as `localhost`
 7. start MAMP server and open url - http://localhost:8888/ to check if the server is up and running
 
